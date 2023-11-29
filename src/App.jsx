@@ -13,13 +13,15 @@ function App() {
     
       <div className="App">
           <Navbar/>
-          <Footer/>
+          
           <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/detail" element={<Detail/>}/>
+            <Route path="/detail/:id" element={<Detail/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="/favs" element={<Favs/>}/>
+            <Route path="/*" element={<h3> Page not found - Error 404 </h3>}/>
           </Routes>
+          <Footer/>
       </div>
     
       

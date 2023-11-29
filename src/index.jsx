@@ -8,11 +8,13 @@ import Context from './Context/Context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Context>
+  
   <BrowserRouter>
-    <App/>
+    <Context>
+      <App/>
+    </Context>
   </BrowserRouter>
-  </Context>
+ 
       
   
 );

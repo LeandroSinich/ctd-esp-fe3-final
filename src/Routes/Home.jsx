@@ -6,25 +6,16 @@ import { GlobalStates } from '../Context/Context'
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  const url = `https://jsonplaceholder.typicode.com/users`
-  const [list, setList] = useState([])
-
-  useEffect(()=>{
-    fetch(url)
-    .then((res) => res.json())
-    .then((lista) => setList(lista))
-    
-  },[])
-
+  
   const useGlobalStates = useContext(GlobalStates)
-  const Contexto = useGlobalStates
-  console.log(Contexto)
+  const {state} = useGlobalStates
+  //console.log(contexto)
   return (
     <main className="" >
       <h1>Home</h1>
       
       <div className='card-grid'>
-        {list.map((dentista)=><Card dentista={dentista} key={dentista.id}/>)}
+        {state.list.map((dentista)=><Card dentista={dentista} key={dentista.id}/>)}
       </div>
     </main>
   )
