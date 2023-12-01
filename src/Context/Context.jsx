@@ -2,12 +2,12 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import { reducer } from "../Reducers/reducer";
 
 
-export const GlobalStates = createContext()
+ const GlobalStates = createContext()
 
 const initialState = {
      
     list: [],
-    favs: [],
+    favs: JSON.parse(localStorage.getItem('favs')) || [],
     theme: true
 
 }
@@ -25,7 +25,12 @@ const Context = ({children}) => {
         .then((dentistas) => dispatch({type: 'GET_DENTISTS', payload: dentistas}))
         
         
-      },[])
+    },[])
+
+    useEffect(()=>{
+         localStorage.setItem('favs', JSON.stringify(state.favs))
+     },[state.favs])
+
 
     return(
         <GlobalStates.Provider value={{state, dispatch}}>
@@ -35,4 +40,4 @@ const Context = ({children}) => {
 }
 export default Context
 
-//export const useGlobalStates = useContext(GlobalStates)
+export const useGlobalStates = ()=> useContext(GlobalStates)

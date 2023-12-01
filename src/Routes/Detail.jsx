@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import '../Styles/Detail.css'
+import docImg from "../images/doctor.jpg"
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
@@ -18,17 +19,25 @@ const Detail = () => {
     .then(res => setDentista(res))
   },[])
 
+  // const volver = () => {
+  //   useLocation()
+  // }
+
   console.log(dentista)
   return (
+    <>
+    <button className='detailButton' >Volver 🔙</button>
     <div className='detail'>
+      
       <h1>{dentista.name} {dentista.username}</h1>
-      <img src="../../public/images/doctor.jpg" alt="doc" />
+      <img src={docImg} alt="doc" />
       <h3>📧{dentista.email}</h3>
       <h3>📱{dentista.phone}</h3>
-      <h3>🌎{dentista.website}</h3>
+      <a>🌎{dentista.website}</a>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       
     </div>
+    </>
   )
 }
 

@@ -4,5 +4,17 @@
     align-items: center;
     justify-content: center;
     border: 0.5px solid rgb(206, 217, 142);
+    padding-top: -100px;
     
+}
+.detail img{
+    height: 200px;
+}
+
+.detailButton{
+    height: 50px;
+    width: 100px;
+    margin-left: 4vw;
+    margin-top: 4vh;
+
 }

@@ -8,8 +8,6 @@ export const reducer = (state, action) =>{
             return {...state, favs: [...state.favs, action.payload]}
         case 'CHANGE_THEME':
             return {}
-        case 'GET_DENTIST':
-            return {}
         case 'DELETE_FAV':
             return {}
 
