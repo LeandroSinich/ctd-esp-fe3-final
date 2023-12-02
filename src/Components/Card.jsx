@@ -1,33 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Detail from "../Routes/Detail";
 import docImg from "../images/doctor.jpg"
 import { useGlobalStates } from "../Context/Context";
-//import cardStyles from '../Styles/Card.module.css'
+
 
 
 
 const Card = ({ dentista }) => {
   
-  // const useGlobalStates = useContext(GlobalStates)
-  const {dispatch} = useGlobalStates()
-
-  const addFav = ()=>{
-    dispatch({type: 'ADD_FAV', payload: dentista})
   
+  const {dispatch,state} = useGlobalStates()
+  const [colorFav, setColorFav] = useState('notFav')
+  const findFav = state.favs.find((fav)=> fav.id == dentista.id)
+  
+  const addFav = ()=>{
+    if(findFav){
+      dispatch({type: 'RMV_FAV', payload: dentista.id})
+      
+    }else{
+      dispatch({type: 'ADD_FAV', payload: dentista})
+      
+    } 
+     
   }
+  useEffect(()=>{
+    if(findFav){
+      setColorFav('fav')
+    }else{
+      setColorFav('notFav')
+    }
+  },[state.favs])
+  
 
   return (
-    <div className="card">
-        {/* En cada card deberan mostrar en name - username y el id */}
+    <div className="card" id={state.theme}>
+        
       <Link to={'/detail/'+ dentista.id}>
       <h3>{dentista.id} {dentista.name} {dentista.username}  </h3>
       <img className= 'doc'src={docImg} alt="doc" />
       </Link>
         
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav ⭐</button>
+      <button onClick={addFav} className="favButton" id={colorFav}>Add fav ⭐</button>
     </div>
   );
 };

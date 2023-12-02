@@ -7,9 +7,10 @@ export const reducer = (state, action) =>{
         case 'ADD_FAV':
             return {...state, favs: [...state.favs, action.payload]}
         case 'CHANGE_THEME':
-            return {}
-        case 'DELETE_FAV':
-            return {}
+            return {...state, theme: action.payload}
+        case 'RMV_FAV':
+            return {...state, favs: state.favs.filter(fav=> fav.id!=action.payload)}
+        
 
     }
         

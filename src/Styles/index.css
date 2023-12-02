@@ -1,7 +1,4 @@
 
-#body{
-  background-color: rgb(218, 203, 185);
-}
 
 body {
   margin: 0;
@@ -11,6 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top: 100px;
+  background-color: #747474;
   
 }
 
@@ -19,10 +17,11 @@ code {
     monospace;
 }
 .favButton{
-  background-color: rgb(189, 187, 187);
+  
   padding: 10px;
   border: none;
-  width: 80%;
+  border-radius: 5px;
+  width: 60%;
   cursor: pointer;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -55,6 +54,7 @@ nav button{
   border-radius: 5px;
   cursor: pointer;
   height: 30px;
+  
 }
 nav button:hover{
   background-color: rgb(233, 186, 155);
@@ -64,8 +64,10 @@ nav button:hover{
 
 .divNav{
   border: 0.5px solid rgb(136, 136, 136);
+  border-radius: 5px;
   width: 150px;
   text-align: center;
+  background-color: #ccc;
 }
 
 .divNav:hover{
@@ -76,10 +78,11 @@ nav button:hover{
 }
 
 a{
-  color: #000;
+  
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
+  color: #7d8d6e;
 }
 a:hover{
   color: rgb(136, 136, 136);
@@ -95,7 +98,7 @@ footer {
   width: 100%;
   height: 40px;
   margin-top: 2rem;
-  background-color: bisque;
+  
 }
 
 footer > img{
@@ -107,13 +110,53 @@ footer > p{
   padding-top: 0.7rem;
 }
 
+.contact{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+}
+.contact .centro{
+  border-right: 0.5px solid rgb(136, 136, 136);
+  padding-right: 150px;
+  margin-right: 50px;
+  text-align: center;
+}
+
+.formulario{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: -150px;
+  
+}
+
 form{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   width: 300px;
-  height: 100px;
-  margin: 0 auto;
+  height: 200px;
+}
+
+form input{
+  height: 50px;
+  border-radius: 5px;
+}
+
+form button{
+  width: 100px;
+  border-radius: 50px;
+  background-color: rgb(214, 151, 79);
+}
+
+form button:hover{
+  background-color: rgb(233, 186, 155);
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 .card{
@@ -126,12 +169,15 @@ form{
   border: 0.5px solid rgb(136, 136, 136);
   text-align: center;
   border-bottom: 10px;
+  border-radius: 10px;
   height: 350px;
-  background-color: aliceblue;
   transition-property: background-color;
   transition-duration: 0.5s;
   
 }
+/* h3{
+  color: rgb(88, 126, 113);
+} */
 
 .card img{
   height: 150px;
@@ -152,7 +198,12 @@ form{
   flex-wrap: wrap;
   margin: 0 auto;
 }
-
+#fav{
+  background-color: rgb(255, 51, 0);
+}
+#notFav{
+  background-color: #c2c2c2;
+}
 table {
  border-collapse: collapse;
     border-spacing: 0;
@@ -172,10 +223,11 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.dark{
+#dark{
   background-color: #12121296;
   color: white;
 }
-.dark > a {
-  color: white;
+#light{
+  background-color: #f7f7f796;
+  color: rgb(27, 27, 27);
 }

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useNavigate } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import '../Styles/Detail.css'
 import docImg from "../images/doctor.jpg"
+import { useGlobalStates } from '../Context/Context'
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
@@ -12,6 +13,8 @@ const Detail = () => {
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   const {id} = useParams()
   const url = `https://jsonplaceholder.typicode.com/users/` + id
+  const {state} = useGlobalStates()
+  
   
   useEffect(()=>{
     fetch(url)
@@ -19,15 +22,15 @@ const Detail = () => {
     .then(res => setDentista(res))
   },[])
 
-  // const volver = () => {
-  //   useLocation()
-  // }
+  
+
+  
 
   console.log(dentista)
   return (
     <>
-    <button className='detailButton' >Volver 🔙</button>
-    <div className='detail'>
+    
+    <div className='detail' id={state.theme}>
       
       <h1>{dentista.name} {dentista.username}</h1>
       <img src={docImg} alt="doc" />

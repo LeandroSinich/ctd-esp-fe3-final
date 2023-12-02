@@ -8,7 +8,8 @@ const initialState = {
      
     list: [],
     favs: JSON.parse(localStorage.getItem('favs')) || [],
-    theme: true
+    theme: 'light',
+    
 
 }
 
@@ -29,7 +30,9 @@ const Context = ({children}) => {
 
     useEffect(()=>{
          localStorage.setItem('favs', JSON.stringify(state.favs))
-     },[state.favs])
+    },[state.favs])
+
+
 
 
     return(

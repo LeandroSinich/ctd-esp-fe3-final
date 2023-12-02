@@ -10,16 +10,16 @@ const Favs = () => {
   const {state} = useGlobalStates()
 
   return (
-    <>
+    <div id={state.theme}>
       <h1>Dentists Favs</h1>
       <div className="card-grid">
-        {/* este componente debe consumir los destacados del localStorage */}
-        {/* Deberan renderizar una Card por cada uno de ellos */}
+        
+        
         {state.favs.map((dentista)=><Card dentista={dentista} key={dentista.id}/>)}
-        {/* {state.Favs.map((dentista)=><Card dentista={dentista} key={dentista.id}/>)} */}
+        
       
       </div>
-    </>
+    </div>
   );
 };
 
